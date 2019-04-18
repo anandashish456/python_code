@@ -75,6 +75,7 @@ class Item(Resource):
         for item in items:
             if item['name'] == name:
                 items.remove(item)
+            cursor.execute("delete from flask_items where name='{}'".format(name))
         return {"message" : "item deleted"}
 
     def put(self, name):
@@ -87,6 +88,7 @@ class Item(Resource):
         for item in items:
             if item['name'] == name:
                 item['price'] = sent_data['price']
+                cursor.execute("update flask_items set price={} where name='{}'".format(sent_data['price'],name))
                 return item
 
 
