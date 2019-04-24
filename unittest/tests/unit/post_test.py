@@ -11,5 +11,6 @@ class PostTest(TestCase):
 
     def test_json(self):
         obj = Post("Test", "Cont")
+
         self.assertDictEqual({'Title': 'Test', 'Content': 'Cont'}, obj.json())
 
