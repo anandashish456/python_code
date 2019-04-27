@@ -1,7 +1,7 @@
 import cx_Oracle
 
 dns_tns = cx_Oracle.makedsn("lnxdb-dev-vm-288", "1551", "DRVDEV")
-conn = cx_Oracle.connect("dbsnmp", "dboem10g", dns_tns)
+conn = cx_Oracle.connect("dbsnmp", "pwd", dns_tns)
 
 c = conn.cursor()
 
@@ -30,6 +30,3 @@ statement = """
                 
             """
 c.execute(statement)
-#result = c.fetchall()
-
-#print(result)
